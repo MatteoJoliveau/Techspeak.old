@@ -1,0 +1,15 @@
+#Head {
+    background: #3498DB;
+    height: 81px;
+    line-height: 81px;
+}
+#Body {
+    margin-top: 30px;
+}
+.SiteSearch .Button{
+    top: 33px;
+}
+pre, code{
+    background: #f3f3f3;
+    border: 1px solid #E8E8E8;
+}

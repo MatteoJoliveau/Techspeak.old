@@ -1,0 +1,6 @@
+Options -Indexes +FollowSymLinks
+RewriteEngine On
+RewriteRule ^(.*).html$ http://www.techspeak.it/$1.php [R=301,L]
+RewriteRule ^dropbox$ https://www.dropbox.com/sh/qzzeqf2m00cud11/AABpstj4YrrQzPVt116qxbG_a?dl=0 [R=301,L]
+RewriteRule ^telegram$ https://telegram.me/techspeak [R=301,L]
+RewriteRule ^forum/(.*)$ http://forum.techspeak.it/$1 [R=301,L]

@@ -1,0 +1,35 @@
+/* dont' select linenumbers */
+ol.linenums li {
+  list-style-type: decimal;
+  -webkit-user-select: none; /* Chrome/Safari */ 
+  /*-user-select: none;*/
+  /*-moz-user-select: none; /* Firefox */
+  /* -ms-user-select: none; /* IE10+ */
+	
+}
+/* selecting code only */
+ol.linenums li code {
+    -webkit-user-select: text; /* Chrome/Safari */ 
+    /*-user-select: all;*/
+    /*-webkit-user-select: all; /* Chrome/Safari */
+    /* -moz-user-select: all; /* Firefox */
+   s /* -ms-user-select: all; /* IE10+ */
+}
+
+/* anchors selectcode and popupwindow*/
+a.selectable {
+	display: inline-block;
+  font-size: 16px;
+  margin-right: 5px;
+  padding: 5px;
+}
+a.popupwindow {
+	display: inline-block;
+  font-size: 16px;
+  padding: 5px;
+}
+
+
+
+
+

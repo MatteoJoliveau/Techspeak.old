@@ -1,0 +1,56 @@
+<?php
+/**
+ * Gdn_Format.
+ *
+ * @author Mark O'Sullivan <markm@vanillaforums.com>
+ * @author Todd Burry <todd@vanillaforums.com>
+ * @author Lincoln Russell <lincoln@vanillaforums.com>
+ * @copyright 2009-2015 Vanilla Forums Inc.
+ * @license http://www.opensource.org/licenses/gpl-2.0.php GNU GPL v2
+ * @package Core
+ * @since 2.0
+ */
+
+/**
+ * Output formatter
+ *
+ * Utility class that helps to format strings, objects, and arrays.
+ */
+class Gdn_Format {
+
+    /**
+     * Flag which allows plugins to decide if the output should include rel="nofollow" on any <a> links.
+     * Example: a plugin can run on "BeforeCommentBody" to check the current users role and decide if his/her post
+     * should contain rel="nofollow" links. The default setting is true, meaning all links will contain
+     * the rel="nofollow" attribute.
+     */
+    public static $DisplayNoFollow = true;
+
+    /** @var bool Whether or not to replace plain text links with anchors. */
+    public static $FormatLinks = true;
+
+    /** @var string  */
+    public static $MentionsUrlFormat = '/profile/{name}';
+
+    /** @var array  */
+    protected static $SanitizedFormats = array(
+        'html', 'bbcode', 'wysiwyg', 'text', 'textex', 'markdown'
+    );
+
+    /**
+     * The ActivityType table has some special sprintf search/replace values in the
+     * FullHeadline and ProfileHeadline fields. The ProfileHeadline field is to be
+     * used on this page (the user profile page). The FullHeadline field is to be
+     * used on the main activity page. The replacement definitions are as follows:
+     *  %1$s = ActivityName
+     *  %2$s = ActivityName Possessive
+     *  %3$s = RegardingName
+     *  %4$s = RegardingName Possessive
+     *  %5$s = Link to RegardingName's Wall
+     *  %6$s = his/her
+     *  %7$s = he/she
+     *  %8$s = route & routecode
+     *  %9$s = gender suffix (some languages require this).
+     *
+     * @param object $Activity An object representation of the activity being formatted.
+     * @param int $ProfileUserID If looking at a user profile, this is the 
